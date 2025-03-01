@@ -10,12 +10,12 @@ jobs:
       - uses: actions/checkout@v3
       - name: Generate TOC
         run: |
-          npm install -g markdown-toc
-          markdown-toc -i README.md
+          npm install -g markdown-toc@latest
+          markdown-toc -i Literature Review.md
       - name: Commit changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add README.md
-          git commit -m "Auto-generated TOC"
+          git add Literature Review.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-generated TOC"
           git push
