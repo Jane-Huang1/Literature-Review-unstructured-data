@@ -19,3 +19,13 @@ jobs:
           git add Literature Review.md
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-generated TOC"
           git push
+          - name: Debug
+  run: |
+    echo "Current directory:"
+    pwd
+    echo "Files in current directory:"
+    ls -la
+    echo "Files in target directory (if applicable):"
+    ls -la path/to  # 如果目标文件在子目录中，替换为实际路径
+    echo "Contents of target file:"
+    cat path/to/docs.md  # 替换为目标文件路径
